@@ -21,8 +21,10 @@ _testmain.go
 
 *.exe
 *.test
-coverage.out
+*.prof
 
-manual_test.go
-*.out
-*.err
+# Ignore jetbrains
+.idea/
+# ignore vim
+*.swa
+*.swp

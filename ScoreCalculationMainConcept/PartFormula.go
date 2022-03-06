@@ -1,7 +1,7 @@
 package ScoreCalculationMainConcept
 
 import (
-	"engine/utils"
+	"RuleEngine/utils"
 	"errors"
 	"fmt"
 	"github.com/Knetic/govaluate"
@@ -177,7 +177,7 @@ func findVariableValue(variable string, belongedModel *Model) string {
 	case variable[0:3] == "[D_":
 		{
 			if belongedModel.ScoringCalculationHashMap[variable[1:len(variable)-1]] != nil {
-				return belongedModel.ScoScoringCalculationHashMap[variable[1:len(variable)-1]].(string)
+				return belongedModel.ScoringCalculationHashMap[variable[1:len(variable)-1]].(string)
 			} else {
 				return variable
 			}

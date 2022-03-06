@@ -1,7 +1,7 @@
 package ScoreCalculationMainConcept
 
 import (
-	"engine/utils"
+	"RuleEngine/utils"
 	"errors"
 	"fmt"
 	"strconv"
@@ -124,6 +124,6 @@ func (criterion *Criterion) CalculateCriterionScore() error {
 	return nil
 }
 
-func (criterion *Criterion) DoesCriterionHasFormula() bool {
+func (criterion *Criterion) HasFormula() bool {
 	return criterion.CriterionFormula.Formula != ""
 }

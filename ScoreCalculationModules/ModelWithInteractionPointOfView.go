@@ -1,6 +1,6 @@
 package ScoreCalculationModules
 
-import "engine/utils"
+import "RuleEngine/utils"
 
 type ModelWithInteractionPointOfView struct {
 	ScoringCalculationHashMap map[string]interface{}

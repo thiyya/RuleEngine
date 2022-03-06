@@ -1,8 +1,8 @@
 package ScoreCalculation
 
 import (
-	"engine/ScoreCalculationMainConcept"
-	"engine/utils"
+	"RuleEngine/ScoreCalculationMainConcept"
+	"RuleEngine/utils"
 )
 
 type ScoreCalculationType interface {
@@ -12,9 +12,9 @@ type ScoreCalculationType interface {
 	SetCriterionValueByFormula(sessionInfo map[string]interface{})
 	ScaleCriterionScore(sessionInfo map[string]interface{})
 	ExecuteBeforeCalculationInteractions(sessionInfo map[string]interface{})
-	CalculateDemographicalScore(sessionInfo map[string]interface{})
+	CalculateDemographicalScore(sessionInfo map[string]interface{}) float64
 	ExecuteInteractions(sessionInfo map[string]interface{})
-	ScaleDemographicalScoreToSegmentScore(sessionInfo map[string]interface{})
+	ScaleDemographicalScoreToSegmentScore(sessionInfo map[string]interface{}) string
 	ExecuteRules(sessionInfo map[string]interface{})
 	CreateModelAndInteractionTrees(sessionInfo map[string]interface{})
 }

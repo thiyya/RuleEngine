@@ -1,7 +1,7 @@
 package ScoreCalculationMainConcept
 
 import (
-	"engine/utils"
+	"RuleEngine/utils"
 	"errors"
 	"fmt"
 	"strconv"
@@ -89,7 +89,7 @@ func (interaction *Interaction) ReflectTheBehaviour() error {
 	case utils.Behaviour_IncreaseCriterionScore:
 		{
 			newScore, err := strconv.ParseFloat(interaction.InteractionResult, 64)
-			if err != nil {
+			if err == nil {
 				interaction.EffectedCriterion.CriterionScore += newScore
 			} else {
 				return errors.New(fmt.Sprintf("Interaction Result can not be parsed. %s", err.Error()))
@@ -98,7 +98,7 @@ func (interaction *Interaction) ReflectTheBehaviour() error {
 	case utils.Behaviour_DecreaseCriterionScore:
 		{
 			newScore, err := strconv.ParseFloat(interaction.InteractionResult, 64)
-			if err != nil {
+			if err == nil {
 				interaction.EffectedCriterion.CriterionScore -= newScore
 			} else {
 				return errors.New(fmt.Sprintf("Interaction Result can not be parsed. %s", err.Error()))
@@ -107,7 +107,7 @@ func (interaction *Interaction) ReflectTheBehaviour() error {
 	case utils.Behaviour_OverrideCriterionScore:
 		{
 			newScore, err := strconv.ParseFloat(interaction.InteractionResult, 64)
-			if err != nil {
+			if err == nil {
 				interaction.EffectedCriterion.CriterionScore = newScore
 			} else {
 				return errors.New(fmt.Sprintf("Interaction Result can not be parsed. %s", err.Error()))
@@ -129,15 +129,11 @@ func (interaction *Interaction) ReflectTheBehaviour() error {
 		}
 	case utils.Behaviour_ChangeSensitivityValueOfModel:
 		{
-			interaction.EffectedCriterion.CriterionValue = interaction.InteractionResult
-			if interaction.InteractionResult == "-99999" {
-				interaction.EffectedCriterion.CriterionWeight = 0
-				interaction.EffectedCriterion.CriterionScore = 0
-				break
-			}
-			err := interaction.EffectedCriterion.CalculateCriterionScore()
-			if utils.IsAnErrorOccured(err) {
-				return err
+			newScore, err := strconv.ParseFloat(interaction.InteractionResult, 64)
+			if err == nil {
+				interaction.InteractionModel.ModelSensitiveValue = newScore
+			} else {
+				return errors.New(fmt.Sprintf("Interaction Result can not be parsed. %s", err.Error()))
 			}
 			break
 		}

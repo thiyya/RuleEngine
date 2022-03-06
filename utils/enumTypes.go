@@ -31,8 +31,8 @@ type InteractionType int
 const (
 	Interaction_Rota InteractionType = iota + 1
 	Interaction_EtkilesimliRota
-	Interaction_Hassas
-	Interaction_GenelEtkilesim
+	Interaction_Sensitive
+	Interaction_General
 	Interaction_YoneticiEtkisi
 	Interaction_MizanEtkisi
 	Interaction_MaliKayitKalitesi
