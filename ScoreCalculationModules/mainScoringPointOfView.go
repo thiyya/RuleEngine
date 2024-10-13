@@ -42,7 +42,7 @@ func (mainScoringPointOfView MainScoringPointOfView) ScoreCalculationSteps(sessi
 func (mainScoringPointOfView MainScoringPointOfView) BuildingModelTree(sessionInfo map[string]interface{}) {
 	defer func() {
 		if capturedError := recover(); capturedError != nil {
-			err := errors.New(fmt.Sprintf("Building model tree step error : \n %s", capturedError.(error).Error()))
+			err := errors.New(fmt.Sprintf("Building. model tree step error : \n %s", capturedError.(error).Error()))
 			sessionInfo["ErrorList"] = err
 		}
 	}()
